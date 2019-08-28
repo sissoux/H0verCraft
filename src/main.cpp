@@ -6,15 +6,17 @@
 elapsedMillis ServoUpdateTimer = 0;
 #define SERVO_REFRESH_RATE 2  //ms
 
-#define LIFT1_PIN 3
-#define LIFT2_PIN 4
-#define THRUST_PIN 5
-#define RUDDER_PIN 6
+#define LIFT1_PIN 5
+#define LIFT2_PIN 6
+#define THRUST1_PIN 3
+#define THRUST2_PIN 4
+#define RUDDER_PIN 20
 
 SBUS x8r(Serial2);
 Servo lift1;
 Servo lift2;
-Servo thrust;
+Servo thrust1;
+Servo thrust2;
 Servo rudder;
 uint16_t li1 = 1040, li2 = 1040, thr = 1040, rud = 1040;
 
@@ -29,7 +31,8 @@ void setup() {
   x8r.begin();
   lift1.attach(LIFT1_PIN);
   lift2.attach(LIFT2_PIN);
-  thrust.attach(THRUST_PIN);
+  thrust1.attach(THRUST1_PIN);
+  thrust2.attach(THRUST2_PIN);
   rudder.attach(RUDDER_PIN);
 }
 
@@ -48,7 +51,8 @@ void loop() {
     {
       lift1.writeMicroseconds(1000);
       lift2.writeMicroseconds(1000);
-      thrust.writeMicroseconds(1000);
+      thrust1.writeMicroseconds(1000);
+      thrust2.writeMicroseconds(1000);
       rudder.writeMicroseconds(1000);
       Serial.println("No Radio");
     }
@@ -64,7 +68,8 @@ void loop() {
       Serial.println(rud);
       lift1.writeMicroseconds(li1);
       lift2.writeMicroseconds(li2);
-      thrust.writeMicroseconds(thr);
+      thrust1.writeMicroseconds(thr);
+      thrust2.writeMicroseconds(thr);
       rudder.writeMicroseconds(rud);
 
     }
