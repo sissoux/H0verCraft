@@ -1,0 +1,21 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "arm-none-eabi-gcc.exe build active file",
+            "command": "C:/Users/alexis/.platformio/packages/toolchain-gccarmnoneeabi/bin/arm-none-eabi-gcc.exe",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-mthumb",
+                "-mcpu=cortex-m4"
+            ],
+            "options": {
+                "cwd": "C:/Users/alexis/.platformio/packages/toolchain-gccarmnoneeabi/bin"
+            }
+        }
+    ],
+    "version": "2.0.0"
+}

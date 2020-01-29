@@ -29,6 +29,7 @@ bool lostFrame;
 void setup() {
   // begin the SBUS communication
   x8r.begin();
+  //Serial.begin(115200);
   lift1.attach(LIFT1_PIN);
   lift2.attach(LIFT2_PIN);
   thrust1.attach(THRUST1_PIN);
@@ -53,11 +54,13 @@ void loop() {
       lift2.writeMicroseconds(1000);
       thrust1.writeMicroseconds(1000);
       thrust2.writeMicroseconds(1000);
-      rudder.writeMicroseconds(1000);
-      Serial.println("No Radio");
+      rudder.writeMicroseconds(1500);
+      //Serial.println("No Radio");
     }
     else
     {
+      /*
+    
       Serial.print("lift1 = ");
       Serial.print(li1);
       Serial.print(", lift2 = ");
@@ -65,7 +68,7 @@ void loop() {
       Serial.print(", thruster = ");
       Serial.print(thr);
       Serial.print(", rudder = ");
-      Serial.println(rud);
+      Serial.println(rud);*/
       lift1.writeMicroseconds(li1);
       lift2.writeMicroseconds(li2);
       thrust1.writeMicroseconds(thr);
