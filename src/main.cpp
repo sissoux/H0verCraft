@@ -6,10 +6,10 @@
 elapsedMillis ServoUpdateTimer = 0;
 #define SERVO_REFRESH_RATE 2  //ms
 
-#define LIFT1_PIN 5
+#define LIFT1_PIN 4
 #define LIFT2_PIN 6
 #define THRUST1_PIN 3
-#define THRUST2_PIN 4
+#define THRUST2_PIN 5
 #define RUDDER_PIN 20
 
 SBUS x8r(Serial2);
@@ -35,6 +35,11 @@ void setup() {
   thrust1.attach(THRUST1_PIN);
   thrust2.attach(THRUST2_PIN);
   rudder.attach(RUDDER_PIN);
+  lift1.writeMicroseconds(1000);
+  lift2.writeMicroseconds(1000);
+  thrust1.writeMicroseconds(1000);
+  thrust2.writeMicroseconds(1000);
+  rudder.writeMicroseconds(1500);
 }
 
 void loop() {
